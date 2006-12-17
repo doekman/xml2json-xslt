@@ -1,8 +1,7 @@
-#Transforming rules, the Parker convention
-
-= Translation JSON =
-
-1. The root element will be absorbed, for there is only one: `<root>test</root>` becomes `"test"`
+1. The root element will be absorbed, for there is only one
+`<root>test</root>`
+   becomes
+`"test"`
 
 2. Element names become object properties: `<root><name>Xml</name><encoding>ASCII</encoding></root>` 
 becomes `{"name":"Xml","encoding":"ASCII"}`
