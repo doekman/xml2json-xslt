@@ -1,0 +1,49 @@
+<?xml-stylesheet type="text/xsl" href="xml2json.xslt"?>
+<!-- 
+Test XML markup for converting xml to JSON using XSLT.
+By Doeke Zanstra, 2006 
+-->
+<root version="1.0" xmlns:ding="http://zanstra.com/ding">
+  this text should be ignored
+  <positive>123</positive>
+  <negative>-12</negative>
+  <zero>0</zero>
+  <fixed>10.25</fixed>
+  <fixed-neg>-10.25</fixed-neg>
+  <padded_zero>01</padded_zero>
+  <ding:dong-dang.dung>Namespaced element with dash and dot</ding:dong-dang.dung>
+  <yo123-ho456/>
+  <string>Zooi</string>
+  <string>Tab	Text</string>
+  <string>Quote "test"</string>
+  <string>Backslash \ test</string>
+  <string>Quote " en \ test</string>
+  <string>"Begin/end quote"</string>
+  <escape>Line one (één in Dutch)
+Line two:	tab
+He said: "Much fun with a €"
+More unicode&#8224;</escape>
+  <int>123</int>
+  <float>-12.123</float>
+  <exp>-1.234e5</exp>
+  <boolean>true</boolean>
+  <nil/>
+  <empty></empty>
+  <object test="true" attributes="are commented">
+    <zooi>jaja</zooi>
+    <zut>frot</zut>
+  </object>
+  <array>
+    <item/>
+    <item>true</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>six</item>
+    <item>
+      <key>item</key>
+      <value>7</value>
+    </item>
+  </array>
+</root>
