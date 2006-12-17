@@ -1,0 +1,8 @@
+#Transforming rules, the Parker convention
+
+= Translation JSON =
+
+1. The root element will be absorbed, for there is only one
+`<root>test</root>`
+   becomes
+`"test"`
