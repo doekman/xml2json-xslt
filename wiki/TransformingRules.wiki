@@ -1,4 +1,4 @@
-#summary version 0.4, Copyright (c) 2006-2007, Doeke Zanstra, see [Copyright].
+#summary Transforming rules of the Parker convention, with some introduction. version 0.4.
 #labels Featured
 
 = xml2json.xslt =
@@ -154,3 +154,4 @@ becomes faulty JSON at the moment
 {"item":1,"item":2,"name":"test"}
 }}}
 
+There's also some [Copyright].
