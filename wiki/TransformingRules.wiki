@@ -1,10 +1,9 @@
-# version 0.4, Copyright (c) 2006-2007, Doeke Zanstra, see [Copyright].
+#summary version 0.4, Copyright (c) 2006-2007, Doeke Zanstra, see [Copyright].
+#labels Featured
 
 = xml2json.xslt =
 
-
-
-xml2json.xslt is a XSLT 1.0 stylesheet to transform arbitrary [http://www.w3.org/TR/xml/ XML] to [http://www.json.org JSON]. There is also a version for javascript. The workings are demonstrated with the accompanied xml files. The target of this library is to create javascript-like JSON, not XML-like JSON, like the [http://badgerfish.ning.com/ BadgerFish convention]. 
+[http://code.google.com/p/xml2json-xslt/ xml2json.xslt] is a XSLT 1.0 stylesheet to transform arbitrary [http://www.w3.org/TR/xml/ XML] to [http://www.json.org JSON]. There is also a version for javascript. The workings are demonstrated with the accompanied xml files. The target of this library is to create javascript-like JSON, not XML-like JSON, like the [http://badgerfish.ning.com/ BadgerFish convention]. 
 
 The downside is it won't translate all markup, and there's a chance the JSON is invalid (see Plans and Issues). However, if you control the XML, you will enjoy the merits of javascript. Enjoy ;-)
 
