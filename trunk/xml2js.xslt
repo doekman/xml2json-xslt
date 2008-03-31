@@ -201,7 +201,7 @@
   </xsl:template>
 
   <!-- number (no support for javascript mantise) -->
-  <xsl:template match="text()[not(string(number())='NaN')]">
+  <xsl:template match="text()[not(string(number())='NaN') and not(starts-with(.,'0') and (contains(.,'8') or contains(.,'9')))]">
     <xsl:value-of select="."/>
   </xsl:template>
 
