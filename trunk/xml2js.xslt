@@ -278,16 +278,6 @@
     <xsl:text>)</xsl:text>
   </xsl:template>
 
-  <!-- item:null -->
-  <xsl:template match="*[count(child::node())=0]">
-    <xsl:call-template name="indent"/>
-    <xsl:call-template name="quote-property">
-      <xsl:with-param name="name" select="local-name()"/>
-    </xsl:call-template>
-    <xsl:text>:null</xsl:text>
-    <xsl:if test="following-sibling::*">,</xsl:if>
-  </xsl:template>
-
   <!-- object -->
   <xsl:template match="*" name="base">
     <xsl:if test="not(preceding-sibling::*)">{</xsl:if>
@@ -300,7 +290,16 @@
       <xsl:with-param name="name" select="name()"/>
     </xsl:call-template>
     <xsl:text>:</xsl:text>
-    <xsl:apply-templates select="child::node()"/>
+    <!-- check type of node -->
+    <xsl:choose>
+      <!-- null nodes -->
+      <xsl:when test="count(child::node())=0">null</xsl:when>
+      <!-- other nodes -->
+      <xsl:otherwise>
+      	<xsl:apply-templates select="child::node()"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <!-- end of type check -->
     <xsl:if test="following-sibling::*">,</xsl:if>
     <xsl:if test="not(following-sibling::*)">}</xsl:if>
   </xsl:template>
