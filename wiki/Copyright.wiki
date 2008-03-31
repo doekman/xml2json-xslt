@@ -1,6 +1,6 @@
 #summary The BSD License
 
-Copyright (c) 2006-2007, Doeke Zanstra
+Copyright (c) 2006-2008, Doeke Zanstra
 
 All rights reserved.
 
