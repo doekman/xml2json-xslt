@@ -26,7 +26,7 @@
 -->
 
   <xsl:output indent="no" omit-xml-declaration="yes" method="text" encoding="UTF-8" media-type="text/x-json"/>
-	<xsl:strip-space elements="*"/>
+  <xsl:strip-space elements="*"/>
   <!--contant-->
   <xsl:variable name="d">0123456789</xsl:variable>
 
@@ -121,9 +121,23 @@
   </xsl:template>
 
   <!-- number (no support for javascript mantissa) -->
-  <xsl:template match="text()[not(string(number())='NaN' or
-                       (starts-with(.,'0' ) and . != '0'))]">
-    <xsl:value-of select="."/>
+  <xsl:template match="text()[not(string(number())='NaN' or 
+                                 (starts-with(.,'0' ) and . != '0' and not(starts-with(.,'0.' ))) or 
+                                 (starts-with(.,'-0' ) and . != '-0' and not(starts-with(.,'-0.' ))))]">
+    <xsl:choose>
+      <xsl:when test="starts-with(.,'.')">
+        <xsl:value-of select="concat('0',.)"/>
+      </xsl:when>
+      <xsl:when test="starts-with(.,'-.')">
+        <xsl:value-of select="concat('-0.', substring(.,3))"/>
+      </xsl:when>
+      <xsl:when test="substring(., string-length(.))='.'">
+        <xsl:value-of select="concat(.,0)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <!-- boolean, case-insensitive -->
@@ -143,7 +157,7 @@
       <xsl:when test="count(child::node())=0">null</xsl:when>
       <!-- other nodes -->
       <xsl:otherwise>
-      	<xsl:apply-templates select="child::node()"/>
+        <xsl:apply-templates select="child::node()"/>
       </xsl:otherwise>
     </xsl:choose>
     <!-- end of type check -->
